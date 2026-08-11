@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="SINAAFZALI — Signature of Scent">
+<title>SINAAFZALI — Signature of Scent</title>
+
+<style>
+:root{
+  --bg:#030303;
+  --bg2:#090909;
+  --gold:#d4af37;
+  --gold2:#f5df8b;
+  --gold3:#8f6d19;
+  --text:#f7f2e8;
+  --muted:#aaa398;
+  --line:rgba(212,175,55,.22);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(212,175,55,.12),transparent 30%),
+    radial-gradient(circle at 0% 50%,rgba(212,175,55,.06),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+.bg-glow{
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(212,175,55,.045);
+  filter:blur(100px);
+  pointer-events:none;
+  z-index:-2;
+  animation:floatGlow 12s ease-in-out infinite alternate;
+}
+
+.bg-glow.one{top:-250px;right:-150px}
+.bg-glow.two{bottom:-300px;left:-180px;animation-delay:3s}
+
+@keyframes floatGlow{
+  from{transform:translate(0,0) scale(1)}
+  to{transform:translate(80px,50px) scale(1.2)}
+}
+
+/* particles */
+
+.particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.particle{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:var(--gold);
+  border-radius:50%;
+  opacity:0;
+  animation:particle 7s linear infinite;
+}
+
+@keyframes particle{
+  0%{transform:translateY(100vh);opacity:0}
+  15%{opacity:.5}
+  85%{opacity:.25}
+  100%{transform:translateY(-10vh);opacity:0}
+}
+
+/* ---------- NAV ---------- */
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:50;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(3,3,3,.65);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(212,175,55,.08);
+}
+
+.nav-logo{
+  color:var(--gold2);
+  font-size:18px;
+  letter-spacing:.22em;
+  direction:ltr;
+}
+
+.nav-tag{
+  color:#777;
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:.2em;
+  direction:ltr;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:110px 20px 70px;
+  position:relative;
+}
+
+.hero-inner{
+  max-width:900px;
+  animation:heroIn 1.3s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes heroIn{
+  from{
+    opacity:0;
+    transform:translateY(45px) scale(.97);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+    filter:blur(0);
+  }
+}
+
+.eyebrow{
+  font-family:Arial,sans-serif;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:.5em;
+  direction:ltr;
+  margin-bottom:25px;
+}
+
+.logo{
+  font-size:clamp(48px,11vw,115px);
+  letter-spacing:.16em;
+  color:var(--gold2);
+  text-shadow:
+    0 0 20px rgba(212,175,55,.12),
+    0 0 70px rgba(212,175,55,.08);
+  direction:ltr;
+  animation:logoGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow{
+  from{text-shadow:0 0 20px rgba(212,175,55,.08)}
+  to{text-shadow:0 0 45px rgba(212,175,55,.18)}
+}
+
+.line{
+  width:min(500px,75%);
+  height:1px;
+  margin:28px auto;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  position:relative;
+}
+
+.line::after{
+  content:"";
+  position:absolute;
+  width:70px;
+  height:2px;
+  top:-1px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--gold2);
+  box-shadow:0 0 20px var(--gold);
+  animation:lineMove 3s ease-in-out infinite;
+}
+
+@keyframes lineMove{
+  0%,100%{width:40px}
+  50%{width:100px}
+}
+
+.hero-title{
+  font-size:clamp(25px,5vw,48px);
+  margin-bottom:15px;
+}
+
+.hero-text{
+  color:var(--muted);
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  line-height:2;
+  max-width:600px;
+  margin:auto;
+}
+
+/* ---------- SEARCH ---------- */
+
+.search-wrap{
+  margin:40px auto 0;
+  max-width:650px;
+}
+
+.search{
+  display:flex;
+  padding:5px;
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:18px;
+  background:rgba(255,255,255,.025);
+  box-shadow:
+    0 0 40px rgba(0,0,0,.5),
+    inset 0 0 25px rgba(255,255,255,.015);
+  transition:.35s;
+}
+
+.search:focus-within{
+  border-color:var(--gold);
+  box-shadow:
+    0 0 35px rgba(212,175,55,.10),
+    inset 0 0 25px rgba(212,175,55,.025);
+}
+
+.search input{
+  flex:1;
+  min-width:0;
+  background:transparent;
+  border:0;
+  outline:0;
+  color:white;
+  padding:16px;
+  text-align:center;
+  font-size:16px;
+}
+
+.search input::placeholder{color:#666}
+
+.search button{
+  border:0;
+  border-radius:13px;
+  padding:0 25px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--gold2),var(--gold3));
+  color:#050505;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.search button:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 25px rgba(212,175,55,.25);
+}
+
+/* ---------- COLLECTION ---------- */
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+.section{
+  padding:80px 0;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-head span{
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:.35em;
+  direction:ltr;
+}
+
+.section-head h2{
+  margin-top:10px;
+  font-size:34px;
+}
+
+/* ---------- FILTER ---------- */
+
+.filters{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:35px;
+}
+
+.filter{
+  color:#aaa;
+  background:transparent;
+  border:1px solid #2d281e;
+  padding:10px 20px;
+  border-radius:100px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.filter:hover,
+.filter.active{
+  color:var(--gold2);
+  border-color:var(--gold);
+  background:rgba(212,175,55,.05);
+  box-shadow:0 0 20px rgba(212,175,55,.07);
+}
+
+/* ---------- CARDS ---------- */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+  gap:20px;
+}
+
+.card{
+  position:relative;
+  padding:28px;
+  min-height:270px;
+  border:1px solid #272218;
+  border-radius:24px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.008));
+  overflow:hidden;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+  animation:cardIn .7s ease both;
+}
+
+.card:hover{
+  border-color:#725b21;
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.45),
+    0 0 35px rgba(212,175,55,.05);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(212,175,55,.07);
+  filter:blur(50px);
+  top:-90px;
+  left:-90px;
+  transition:.5s;
+}
+
+.card:hover::before{
+  transform:translate(60px,60px);
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.card-content{
+  position:relative;
+  z-index:2;
+}
+
+.code{
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:.25em;
+  direction:ltr;
+}
+
+.card h3{
+  font-size:25px;
+  margin:14px 0 10px;
+}
+
+.card p{
+  color:#99938a;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.badges{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.badge{
+  color:#bdb5a6;
+  border:1px solid #332c20;
+  padding:5px 9px;
+  border-radius:100px;
+  font-family:Arial,sans-serif;
+  font-size:9px;
+}
+
+/* ---------- DETAIL ---------- */
+
+.detail{
+  display:none;
+  margin:30px 0;
+  padding:35px;
+  border:1px solid #67511f;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 85% 0%,rgba(212,175,55,.10),transparent 35%),
+    #080808;
+  animation:detailIn .6s ease both;
+}
+
+@keyframes detailIn{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.back{
+  background:transparent;
+  border:0;
+  color:var(--gold2);
+  cursor:pointer;
+  font-size:13px;
+}
+
+.detail-code{
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:.25em;
+  direction:ltr;
+  margin-top:28px;
+}
+
+.detail h2{
+  font-size:42px;
+  margin:10px 0 18px;
+}
+
+.detail-description{
+  color:#c4beb4;
+  font-family:Arial,sans-serif;
+  line-height:2;
+  max-width:800px;
+}
+
+.detail-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:13px;
+  margin-top:28px;
+}
+
+.info{
+  border:1px solid #29241c;
+  border-radius:17px;
+  padding:18px;
+  background:#050505;
+}
+
+.info strong{
+  display:block;
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:.2em;
+  direction:ltr;
+  margin-bottom:9px;
+}
+
+/* ---------- BRAND ---------- */
+
+.brand{
+  text-align:center;
+  padding:100px 20px;
+  border-top:1px solid #1e1a14;
+  border-bottom:1px solid #1e1a14;
+}
+
+.brand-logo{
+  color:var(--gold2);
+  font-size:42px;
+  letter-spacing:.18em;
+  direction:ltr;
+}
+
+.brand p{
+  max-width:650px;
+  margin:20px auto 0;
+  color:#888278;
+  font-family:Arial,sans-serif;
+  line-height:2.1;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+  padding:35px 20px;
+  text-align:center;
+  color:#5f5a52;
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:.25em;
+  direction:ltr;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px){
+
+  .nav-tag{display:none}
+
+  .nav{padding:15px 20px}
+
+  .hero{
+    min-height:92vh;
+    padding-top:90px;
+  }
+
+  .logo{
+    font-size:43px;
+    letter-spacing:.08em;
+  }
+
+  .search{
+    flex-direction:column;
+    gap:5px;
+    padding:6px;
+  }
+
+  .search button{
+    height:48px;
+  }
+
+  .card{
+    min-height:235px;
+  }
+
+  .detail{
+    padding:23px;
+  }
+
+  .detail h2{
+    font-size:32px;
+  }
+
+  .brand-logo{
+    font-size:30px;
+  }
+}
+
+/* accessibility */
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow one"></div>
+<div class="bg-glow two"></div>
+<div class="particles" id="particles"></div>
+
+<nav class="nav">
+  <div class="nav-logo">SINAAFZALI</div>
+  <div class="nav-tag">SIGNATURE OF SCENT</div>
+</nav>
+
+<header class="hero">
+
+  <div class="hero-inner">
+
+    <div class="eyebrow">PRIVATE FRAGRANCE COLLECTION</div>
+
+    <div class="logo">SINAAFZALI</div>
+
+    <div class="line"></div>
+
+    <h1 class="hero-title">
+      رایحه، امضای شماست.
+    </h1>
+
+    <p class="hero-text">
+      کد درج‌شده روی شیشه را وارد کنید
+      و وارد دنیای اختصاصی رایحه شوید.
+    </p>
+
+    <div class="search-wrap">
+
+      <div class="search">
+
+        <input
+          id="search"
+          type="text"
+          inputmode="numeric"
+          placeholder="کد رایحه را وارد کنید..."
+          autocomplete="off"
+        >
+
+        <button onclick="searchPerfume()">
+          جستجوی رایحه
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+<section class="section">
+
+  <div class="section-head">
+
+    <span>THE COLLECTION</span>
+
+    <h2>مجموعه رایحه‌ها</h2>
+
+  </div>
+
+
+  <div class="filters">
+
+    <button
+      class="filter active"
+      onclick="setCategory('ALL',this)"
+    >
+      همه
+    </button>
+
+    <button
+      class="filter"
+      onclick="setCategory('MEN',this)"
+    >
+      مردانه
+    </button>
+
+    <button
+      class="filter"
+      onclick="setCategory('WOMEN',this)"
+    >
+      زنانه
+    </button>
+
+    <button
+      class="filter"
+      onclick="setCategory('UNISEX',this)"
+    >
+      یونیسکس
+    </button>
+
+  </div>
+
+
+  <section id="detail" class="detail"></section>
+
+
+  <div id="grid" class="grid"></div>
+
+</section>
+
+
+<section class="brand">
+
+  <div class="brand-logo">
+    SINAAFZALI
+  </div>
+
+  <p>
+    SINAAFZALI مجموعه‌ای از رایحه‌های انتخاب‌شده
+    برای ساختن تجربه‌ای ماندگار است؛
+    جایی که رایحه فقط یک بو نیست،
+    بلکه بخشی از هویت و امضای شماست.
+  </p>
+
+</section>
+
+</main>
+
+
+<footer>
+SINAAFZALI • SIGNATURE OF SCENT
+</footer>
+
+
+<script>
+
+/* =========================================
+   SINAAFZALI
+   FRAGRANCE DATABASE
+   اطلاعات واقعی بعداً اینجا قرار می‌گیرد.
+========================================= */
+
+const perfumes = [
+
+{
+  code:"089",
+  name:"SIGNATURE 089",
+  category:"WOMEN",
+  style:"لوکس • جذاب • خاص",
+
+  description:
+  "این رایحه برای شخصیتی ساخته شده که دوست دارد حضورش قبل از کلمات احساس شود. توضیحات واقعی رایحه 089 بعداً در همین بخش قرار می‌گیرد.",
+
+  top:"نت‌های ابتدایی",
+  heart:"نت‌های میانی",
+  base:"نت‌های پایه",
+
+  longevity:"★★★★★",
+  sillage:"★★★★★"
+}
+
+];
+
+
+let currentCategory="ALL";
+
+
+/* ---------- PARTICLES ---------- */
+
+const particleBox=
+document.getElementById("particles");
+
+for(let i=0;i<24;i++){
+
+  const p=document.createElement("span");
+
+  p.className="particle";
+
+  p.style.left=
+    Math.random()*100+"%";
+
+  p.style.animationDelay=
+    Math.random()*7+"s";
+
+  p.style.animationDuration=
+    (5+Math.random()*7)+"s";
+
+  particleBox.appendChild(p);
+
+}
+
+
+/* ---------- RENDER ---------- */
+
+function render(){
+
+  const query=
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const list=
+    perfumes.filter(p=>{
+
+      const categoryMatch=
+        currentCategory==="ALL" ||
+        p.category===currentCategory;
+
+      const searchMatch=
+        !query ||
+        p.code.toLowerCase().includes(query) ||
+        p.name.toLowerCase().includes(query);
+
+      return categoryMatch && searchMatch;
+
+    });
+
+
+  const grid=
+    document.getElementById("grid");
+
+
+  if(!list.length){
+
+    grid.innerHTML=`
+
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:60px 20px;
+        color:#8c877f;
+        font-family:Arial,sans-serif;
+      ">
+
+        <div style="
+          color:#d4af37;
+          font-size:28px;
+          margin-bottom:12px;
+        ">
+          ۰۸۹
+        </div>
+
+        رایحه‌ای با این مشخصات پیدا نشد.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  grid.innerHTML=
+
+    list.map((p,index)=>`
+
+      <article
+        class="card"
+        style="animation-delay:${index*80}ms"
+        onclick="openPerfume('${p.code}')"
+        onmousemove="tiltCard(event,this)"
+        onmouseleave="resetCard(this)"
+      >
+
+        <div class="card-content">
+
+          <div class="code">
+            CODE ${p.code}
+          </div>
+
+          <h3>
+            ${p.name}
+          </h3>
+
+          <p>
+            ${p.description}
+          </p>
+
+          <div class="badges">
+
+            <span class="badge">
+              ${translateCategory(p.category)}
+            </span>
+
+            <span class="badge">
+              ${p.style}
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    `)
+    .join("");
+
+}
+
+
+function translateCategory(category){
+
+  if(category==="MEN") return "مردانه";
+  if(category==="WOMEN") return "زنانه";
+  if(category==="UNISEX") return "یونیسکس";
+
+  return "همه";
+
+}
+
+
+/* ---------- SEARCH ---------- */
+
+function searchPerfume(){
+
+  const query=
+    document
+      .getElementById("search")
+      .value
+      .trim();
+
+
+  const perfume=
+    perfumes.find(
+      p=>p.code===query
+    );
+
+
+  if(perfume){
+
+    openPerfume(perfume.code);
+
+  }else{
+
+    render();
+
+  }
+
+}
+
+
+/* ---------- DETAIL ---------- */
+
+function openPerfume(code){
+
+  const p=
+    perfumes.find(
+      x=>x.code===code
+    );
+
+  if(!p)return;
+
+
+  const detail=
+    document.getElementById("detail");
+
+
+  detail.style.display="block";
+
+
+  detail.innerHTML=`
+
+    <button
+      class="back"
+      onclick="closeDetail()"
+    >
+      ← بازگشت به مجموعه
+    </button>
+
+
+    <div class="detail-code">
+      CODE ${p.code}
+    </div>
+
+
+    <h2>
+      ${p.name}
+    </h2>
+
+
+    <p class="detail-description">
+      ${p.description}
+    </p>
+
+
+    <div class="detail-grid">
+
+      <div class="info">
+        <strong>TOP NOTES</strong>
+        ${p.top}
+      </div>
+
+      <div class="info">
+        <strong>HEART NOTES</strong>
+        ${p.heart}
+      </div>
+
+      <div class="info">
+        <strong>BASE NOTES</strong>
+        ${p.base}
+      </div>
+
+      <div class="info">
+        <strong>LONGEVITY</strong>
+        ${p.longevity}
+      </div>
+
+      <div class="info">
+        <strong>SILLAGE</strong>
+        ${p.sillage}
+      </div>
+
+      <div class="info">
+        <strong>STYLE</strong>
+        ${p.style}
+      </div>
+
+    </div>
+
+  `;
+
+
+  detail.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+
+
+/* ---------- CLOSE DETAIL ---------- */
+
+function closeDetail(){
+
+  const detail=
+    document.getElementById("detail");
+
+  detail.style.display="none";
+  detail.innerHTML="";
+
+}
+
+
+/* ---------- CATEGORY ---------- */
+
+function setCategory(category,button){
+
+  currentCategory=category;
+
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(
+      b=>b.classList.remove("active")
+    );
+
+
+  button.classList.add("active");
+
+
+  render();
+
+}
+
+
+/* ---------- LIVE SEARCH ---------- */
+
+document
+  .getElementById("search")
+  .addEventListener(
+    "input",
+    render
+  );
+
+
+document
+  .getElementById("search")
+  .addEventListener(
+    "keydown",
+    e=>{
+
+      if(e.key==="Enter"){
+        searchPerfume();
+      }
+
+    }
+  );
+
+
+/* ---------- CARD 3D ---------- */
+
+function tiltCard(event,card){
+
+  const rect=
+    card.getBoundingClientRect();
+
+
+  const x=
+    event.clientX-rect.left;
+
+  const y=
+    event.clientY-rect.top;
+
+
+  const rotateY=
+    ((x/rect.width)-.5)*8;
+
+  const rotateX=
+    ((y/rect.height)-.5)*-8;
+
+
+  card.style.transform=
+    `perspective(800px)
+     rotateX(${rotateX}deg)
+     rotateY(${rotateY}deg)
+     translateY(-7px)`;
+
+}
+
+
+function resetCard(card){
+
+  card.style.transform="";
+
+}
+
+
+/* ---------- START ---------- */
+
+render();
+
+</script>
+
+</body>
+</html>
