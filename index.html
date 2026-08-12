@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SINA AFZALI | 2026</title>
+<title>SINA AFZALI | عطر و رایحه</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
 *{
   margin:0;
   padding:0;
@@ -18,176 +20,202 @@ html{
 }
 
 body{
-  min-height:100vh;
-  background:#030303;
-  color:#ead18a;
+  background:#050505;
+  color:#f1dfaa;
+  font-family:"Vazirmatn",Tahoma,sans-serif;
   overflow-x:hidden;
-  font-family:Georgia,"Times New Roman",serif;
 }
 
-/* نورهای پس زمینه */
+/* پس زمینه */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   z-index:-3;
   background:
-    radial-gradient(circle at 50% 25%,rgba(212,175,55,.14),transparent 32%),
-    radial-gradient(circle at 10% 90%,rgba(212,175,55,.07),transparent 30%);
+    radial-gradient(circle at 50% 18%,rgba(212,175,55,.15),transparent 28%),
+    radial-gradient(circle at 10% 70%,rgba(212,175,55,.07),transparent 25%),
+    radial-gradient(circle at 90% 75%,rgba(212,175,55,.06),transparent 25%);
 }
 
-.glow{
+body::after{
+  content:"";
   position:fixed;
-  width:420px;
-  height:420px;
+  inset:0;
+  z-index:-2;
+  opacity:.35;
+  background-image:
+    linear-gradient(115deg,transparent 35%,rgba(212,175,55,.08),transparent 45%),
+    linear-gradient(65deg,transparent 45%,rgba(255,255,255,.025),transparent 55%);
+  pointer-events:none;
+}
+
+/* نورهای شناور */
+.light{
+  position:fixed;
+  width:350px;
+  height:350px;
   border-radius:50%;
-  background:rgba(212,175,55,.07);
+  background:rgba(212,175,55,.06);
   filter:blur(100px);
   pointer-events:none;
-  z-index:-2;
-  animation:glowMove 10s ease-in-out infinite alternate;
+  z-index:-1;
+  animation:floatLight 9s ease-in-out infinite alternate;
 }
 
-.glow.one{
-  top:-180px;
+.light.one{
+  top:-150px;
   right:-100px;
 }
 
-.glow.two{
-  bottom:-200px;
+.light.two{
+  bottom:-150px;
   left:-100px;
   animation-delay:3s;
 }
 
-@keyframes glowMove{
-  from{
-    transform:translate(0,0) scale(1);
-  }
+@keyframes floatLight{
   to{
-    transform:translate(80px,60px) scale(1.2);
+    transform:translate(80px,60px) scale(1.15);
   }
 }
 
-/* ذرات طلایی */
-.particles{
+/* ذرات */
+#particles{
   position:fixed;
   inset:0;
   pointer-events:none;
-  overflow:hidden;
-  z-index:-1;
+  z-index:0;
 }
 
 .particle{
   position:absolute;
   width:2px;
   height:2px;
-  border-radius:50%;
   background:#d4af37;
+  border-radius:50%;
   opacity:0;
   animation:rise linear infinite;
 }
 
 @keyframes rise{
   0%{
-    transform:translateY(110vh);
+    transform:translateY(105vh);
     opacity:0;
   }
-  15%{
-    opacity:.6;
-  }
-  80%{
-    opacity:.2;
-  }
+  15%{opacity:.6}
+  80%{opacity:.15}
   100%{
     transform:translateY(-10vh);
     opacity:0;
   }
 }
 
-/* نوار بالا */
-nav{
+/* هدر */
+header{
   position:fixed;
   top:0;
-  left:0;
   right:0;
-  z-index:20;
-
-  padding:18px 6%;
-
+  left:0;
+  height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(18px);
-
+  padding:0 6%;
+  background:rgba(3,3,3,.65);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(212,175,55,.12);
+  z-index:100;
 }
 
-.nav-brand{
+.brand{
   direction:ltr;
-  color:#e9cc76;
-  font-size:14px;
-  letter-spacing:.3em;
+  color:#e8c96a;
+  font-family:Georgia,serif;
+  letter-spacing:.22em;
+  font-size:18px;
 }
 
-.nav-year{
-  direction:ltr;
-  color:#806b35;
-  font-size:10px;
-  letter-spacing:.4em;
+nav{
+  display:flex;
+  gap:34px;
 }
 
-/* صفحه اصلی */
+nav a{
+  color:#cfc5a7;
+  text-decoration:none;
+  font-size:12px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#e5c568;
+}
+
+.instagram{
+  color:#d7b957;
+  text-decoration:none;
+  font-size:11px;
+}
+
+/* هیرو */
 .hero{
   min-height:100vh;
-
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
+  padding:120px 20px 70px;
+}
 
-  padding:110px 20px 70px;
-
-  position:relative;
+.hero::before{
+  content:"";
+  position:absolute;
+  width:min(900px,90vw);
+  height:500px;
+  background:radial-gradient(
+    ellipse,
+    rgba(212,175,55,.09),
+    transparent 65%
+  );
+  pointer-events:none;
 }
 
 .hero-content{
+  position:relative;
+  z-index:2;
   width:min(900px,100%);
-
-  animation:heroEnter 1.5s cubic-bezier(.16,1,.3,1);
+  animation:enter 1.3s ease-out;
 }
 
-@keyframes heroEnter{
+@keyframes enter{
   from{
     opacity:0;
-    transform:translateY(45px) scale(.95);
-    filter:blur(10px);
+    transform:translateY(35px);
+    filter:blur(8px);
   }
   to{
     opacity:1;
     transform:none;
-    filter:blur(0);
+    filter:none;
   }
 }
 
 /* لوگو */
-.logo-wrap{
+.logo-box{
   width:min(430px,82vw);
   margin:auto;
   position:relative;
-  animation:logoFloat 5s ease-in-out infinite;
 }
 
-.logo-wrap::after{
+.logo-box::after{
   content:"";
   position:absolute;
-  left:50%;
-  bottom:3%;
-  width:70%;
+  left:10%;
+  right:10%;
+  bottom:0;
   height:45px;
-  transform:translateX(-50%);
   background:rgba(212,175,55,.18);
   filter:blur(35px);
   z-index:-1;
@@ -196,303 +224,285 @@ nav{
 .logo{
   width:100%;
   display:block;
-  object-fit:contain;
-
   filter:
-    drop-shadow(0 0 12px rgba(212,175,55,.2))
-    drop-shadow(0 0 45px rgba(212,175,55,.08));
+    drop-shadow(0 0 20px rgba(212,175,55,.18))
+    drop-shadow(0 15px 50px rgba(0,0,0,.8));
+  animation:logoFloat 5s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-9px);
-  }
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
 }
 
 /* اسم برند */
 .brand-name{
   direction:ltr;
-
-  margin-top:28px;
-
-  font-size:clamp(35px,8vw,72px);
-
-  letter-spacing:clamp(.12em,1.2vw,.25em);
-
-  color:#f1d77e;
-
-  text-shadow:
-    0 0 15px rgba(212,175,55,.15),
-    0 0 50px rgba(212,175,55,.07);
+  margin-top:25px;
+  color:#efd47b;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(36px,7vw,68px);
+  letter-spacing:.18em;
+  text-shadow:0 0 30px rgba(212,175,55,.12);
 }
 
 .year{
   direction:ltr;
-
-  margin-top:14px;
-
-  font-size:23px;
-
+  margin-top:8px;
+  color:#a98936;
+  font-family:Georgia,serif;
   letter-spacing:.55em;
-
   padding-left:.55em;
-
-  color:#ae8b30;
+  font-size:20px;
 }
 
-/* خط طلایی */
-.gold-line{
-  width:min(550px,75%);
+.line{
+  width:min(500px,75%);
   height:1px;
-
-  margin:28px auto;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #8f6d19,
-      #fff0ae,
-      #d4af37,
-      transparent
-    );
-
-  position:relative;
+  margin:25px auto;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #8b691c,
+    #f3d87d,
+    #8b691c,
+    transparent
+  );
 }
 
-.gold-line::before,
-.gold-line::after{
-  content:"";
-
-  position:absolute;
-
-  top:-3px;
-
-  width:7px;
-  height:7px;
-
-  background:#d4af37;
-
-  transform:rotate(45deg);
-
-  box-shadow:0 0 12px #d4af37;
-}
-
-.gold-line::before{
-  left:0;
-}
-
-.gold-line::after{
-  right:0;
-}
-
-/* شعار */
 .slogan{
-  direction:ltr;
-
-  color:#bda45d;
-
-  font-size:clamp(10px,2vw,14px);
-
-  letter-spacing:.28em;
-
-  line-height:2;
-
-  padding-left:.28em;
+  color:#b7a56e;
+  font-size:12px;
+  letter-spacing:.08em;
 }
 
-/* دکمه ها */
-.actions{
+/* دکمه */
+.buttons{
   display:flex;
-
   justify-content:center;
-
-  flex-wrap:wrap;
-
   gap:14px;
-
-  margin-top:38px;
+  margin-top:35px;
+  flex-wrap:wrap;
 }
 
 .btn{
   min-width:190px;
-
-  padding:15px 25px;
-
-  border-radius:100px;
-
+  padding:14px 25px;
+  border-radius:50px;
   text-decoration:none;
-
-  font-family:Arial,sans-serif;
-
   font-size:12px;
-
-  transition:
-    transform .35s,
-    box-shadow .35s;
+  transition:.35s;
 }
 
-.btn-primary{
+.btn-main{
   color:#080706;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff0a7,
-      #d4af37,
-      #8f6d19
-    );
-
-  box-shadow:0 8px 35px rgba(212,175,55,.12);
+  background:linear-gradient(
+    135deg,
+    #f5dc86,
+    #c59b2e,
+    #806016
+  );
+  box-shadow:0 10px 35px rgba(212,175,55,.12);
 }
 
-.btn-secondary{
-  color:#e6ce82;
-
+.btn-outline{
+  color:#e2c873;
   border:1px solid rgba(212,175,55,.35);
-
   background:rgba(255,255,255,.025);
 }
 
 .btn:hover{
   transform:translateY(-5px);
-
   box-shadow:0 15px 40px rgba(212,175,55,.18);
 }
 
-/* اسکرول */
-.scroll{
-  position:absolute;
-
-  bottom:25px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  color:#695a35;
-
-  font-family:Arial,sans-serif;
-
-  font-size:8px;
-
-  letter-spacing:.4em;
-
-  direction:ltr;
-
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{opacity:.3;}
-  50%{opacity:1;}
-}
-
-/* معرفی */
-.intro{
-  min-height:60vh;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
+/* جستجو */
+.search-section{
+  padding:90px 20px;
   text-align:center;
-
-  padding:100px 25px;
-
-  border-top:1px solid rgba(212,175,55,.1);
 }
 
-.intro-inner{
-  max-width:720px;
+.section-label{
+  color:#b99332;
+  font-size:11px;
+  letter-spacing:.15em;
+  margin-bottom:12px;
 }
 
-.small-title{
+.section-title{
+  font-size:30px;
+  font-weight:500;
+  color:#eee0b6;
+}
+
+.search-box{
+  width:min(620px,92vw);
+  margin:35px auto 0;
+  display:flex;
+  background:#0b0b0b;
+  border:1px solid rgba(212,175,55,.28);
+  border-radius:60px;
+  overflow:hidden;
+  box-shadow:0 15px 60px rgba(0,0,0,.5);
+}
+
+.search-box input{
+  flex:1;
+  min-width:0;
+  padding:18px 25px;
+  background:transparent;
+  border:0;
+  outline:0;
+  color:#eee;
+  font-family:inherit;
+  font-size:13px;
+}
+
+.search-box input::placeholder{
+  color:#756b55;
+}
+
+.search-box button{
+  border:0;
+  padding:0 30px;
+  background:linear-gradient(135deg,#efd47b,#a77c1c);
+  color:#090909;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+/* دسته بندی */
+.collections{
+  padding:80px 6% 120px;
+}
+
+.cards{
+  max-width:1100px;
+  margin:45px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  position:relative;
+  min-height:230px;
+  padding:35px 25px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  text-align:center;
+  border:1px solid rgba(212,175,55,.16);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(212,175,55,.025)
+    );
+  overflow:hidden;
+  transition:.4s;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:radial-gradient(
+    circle,
+    rgba(212,175,55,.1),
+    transparent 55%
+  );
+  opacity:0;
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(212,175,55,.4);
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+.card-icon{
+  font-size:45px;
   color:#d4af37;
-
-  font-family:Arial,sans-serif;
-
-  font-size:10px;
-
-  letter-spacing:.4em;
-
-  direction:ltr;
+  margin-bottom:auto;
 }
 
-.intro h2{
-  margin:18px 0;
-
-  font-size:clamp(28px,5vw,48px);
+.card h3{
+  color:#e6cc7b;
+  font-size:20px;
+  font-weight:500;
 }
 
-.intro p{
-  color:#938c7c;
-
-  font-family:Arial,sans-serif;
-
-  font-size:14px;
-
-  line-height:2.2;
+.card p{
+  color:#81785f;
+  font-size:11px;
+  margin-top:8px;
 }
 
 /* فوتر */
 footer{
-  text-align:center;
-
   padding:35px 20px;
+  text-align:center;
+  border-top:1px solid rgba(212,175,55,.1);
+  color:#62583c;
+  font-size:10px;
+}
 
-  border-top:1px solid rgba(212,175,55,.08);
-
-  color:#625839;
-
-  font-family:Arial,sans-serif;
-
-  font-size:9px;
-
-  letter-spacing:.3em;
-
-  direction:ltr;
+footer strong{
+  color:#a98a3b;
 }
 
 /* موبایل */
-@media(max-width:600px){
+@media(max-width:800px){
 
-  nav{
-    padding:15px 20px;
+  header{
+    height:65px;
+    padding:0 20px;
   }
 
-  .nav-year{
+  nav{
     display:none;
   }
 
-  .logo-wrap{
-    width:min(370px,88vw);
+  .instagram{
+    font-size:9px;
+  }
+
+  .brand{
+    font-size:14px;
+  }
+
+  .logo-box{
+    width:min(380px,90vw);
   }
 
   .brand-name{
-    font-size:32px;
+    font-size:34px;
     letter-spacing:.1em;
-  }
-
-  .year{
-    font-size:20px;
   }
 
   .slogan{
     font-size:9px;
-    letter-spacing:.17em;
   }
 
-  .actions{
-    flex-direction:column;
-    align-items:center;
+  .cards{
+    grid-template-columns:1fr;
   }
 
-  .btn{
-    width:min(300px,90vw);
+  .card{
+    min-height:190px;
+  }
+
+  .search-box{
+    height:54px;
+  }
+
+  .search-box button{
+    padding:0 20px;
   }
 }
 </style>
@@ -500,33 +510,46 @@ footer{
 
 <body>
 
-<div class="glow one"></div>
-<div class="glow two"></div>
+<div class="light one"></div>
+<div class="light two"></div>
 
-<div class="particles" id="particles"></div>
+<div id="particles"></div>
 
-<nav>
+<header>
 
-  <div class="nav-brand">
-    SINAAFZALI
+  <div class="brand">
+    SINA AFZALI
   </div>
 
-  <div class="nav-year">
-    EST. 2026
-  </div>
+  <nav>
+    <a href="#">خانه</a>
+    <a href="#catalog">کاتالوگ عطرها</a>
+    <a href="#collections">مجموعه‌ها</a>
+    <a href="#">درباره ما</a>
+    <a href="#">تماس با ما</a>
+  </nav>
 
-</nav>
+  <a
+    class="instagram"
+    href="https://instagram.com/Afzali_shopp"
+    target="_blank"
+  >
+    @Afzali_shopp
+  </a>
+
+</header>
+
 
 <section class="hero">
 
   <div class="hero-content">
 
-    <div class="logo-wrap">
+    <div class="logo-box">
 
       <img
-        src="F8F9AF2B-49DB-4EC0-BEF6-E3FF03041997.png"
         class="logo"
-        alt="Sina Afzali"
+        src="F8F9AF2B-49DB-4EC0-BEF6-E3FF03041997.png"
+        alt="لوگوی سینا افضلی"
       >
 
     </div>
@@ -539,79 +562,157 @@ footer{
       2026
     </div>
 
-    <div class="gold-line"></div>
+    <div class="line"></div>
 
     <div class="slogan">
-      CRAFTED FOR DISTINCTION · LOVED WORLDWIDE
+      رایحه‌ای برای متمایز بودن
     </div>
 
-    <div class="actions">
+    <div class="buttons">
 
       <a
-        href="#collection"
-        class="btn btn-primary"
+        href="#catalog"
+        class="btn btn-main"
       >
-        ورود به کاتالوگ
+        مشاهده کاتالوگ
       </a>
 
       <a
         href="https://instagram.com/Afzali_shopp"
         target="_blank"
-        class="btn btn-secondary"
+        class="btn btn-outline"
       >
-        Instagram · @Afzali_shopp
+        اینستاگرام ما
       </a>
 
     </div>
 
   </div>
 
-  <div class="scroll">
-    SCROLL TO DISCOVER
-  </div>
-
 </section>
+
 
 <section
-  class="intro"
-  id="collection"
+  class="search-section"
+  id="catalog"
 >
 
-  <div class="intro-inner">
+  <div class="section-label">
+    کاتالوگ SINAAFZALI
+  </div>
 
-    <div class="small-title">
-      SINAAFZALI COLLECTION
-    </div>
+  <div class="section-title">
+    عطر مورد نظر خود را پیدا کنید
+  </div>
 
-    <h2>
-      جایی که رایحه،
-      <br>
-      تبدیل به امضا می‌شود.
-    </h2>
+  <div class="search-box">
 
-    <p>
-      مجموعه اختصاصی رایحه‌های SINAAFZALI
-      به‌زودی در این بخش قرار می‌گیرد.
-      کد رایحه را وارد کنید و دنیای اختصاصی
-      هر عطر را کشف کنید.
-    </p>
+    <input
+      type="text"
+      placeholder="کد عطر را وارد کنید..."
+      id="perfumeCode"
+    >
 
-    <div class="gold-line"></div>
+    <button onclick="searchPerfume()">
+      جستجو
+    </button>
 
   </div>
 
 </section>
 
+
+<section
+  class="collections"
+  id="collections"
+>
+
+  <div style="text-align:center">
+
+    <div class="section-label">
+      مجموعه‌ها
+    </div>
+
+    <div class="section-title">
+      دنیای رایحه‌های سینا افضلی
+    </div>
+
+  </div>
+
+
+  <div class="cards">
+
+    <div class="card">
+
+      <div class="card-icon">
+        ♂
+      </div>
+
+      <h3>
+        عطرهای مردانه
+      </h3>
+
+      <p>
+        رایحه‌های قدرتمند و ماندگار
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">
+        ♀
+      </div>
+
+      <h3>
+        عطرهای زنانه
+      </h3>
+
+      <p>
+        رایحه‌های خاص و متمایز
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">
+        ◈
+      </div>
+
+      <h3>
+        عطرهای یونیسکس
+      </h3>
+
+      <p>
+        رایحه‌هایی فراتر از جنسیت
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <footer>
-  SINA AFZALI · 2026 · SINAAFZALI
+
+  <strong>SINA AFZALI</strong>
+  · 2026
+  · تمامی حقوق محفوظ است
+
 </footer>
+
 
 <script>
 
+/* ذرات طلایی */
 const particles =
 document.getElementById("particles");
 
-for(let i=0;i<35;i++){
+for(let i=0;i<45;i++){
 
   const p =
   document.createElement("span");
@@ -621,13 +722,32 @@ for(let i=0;i<35;i++){
   p.style.left =
   Math.random()*100+"%";
 
-  p.style.animationDelay =
-  Math.random()*8+"s";
-
   p.style.animationDuration =
-  5+Math.random()*8+"s";
+  (5+Math.random()*9)+"s";
+
+  p.style.animationDelay =
+  (Math.random()*9)+"s";
 
   particles.appendChild(p);
+}
+
+
+/* جستجوی موقت */
+function searchPerfume(){
+
+  const code =
+  document.getElementById("perfumeCode").value.trim();
+
+  if(!code){
+
+    alert("لطفاً کد عطر را وارد کنید.");
+
+    return;
+  }
+
+  alert(
+    "کد «"+code+"» ثبت شد.\nصفحه اختصاصی این عطر به‌زودی اضافه می‌شود."
+  );
 }
 
 </script>
