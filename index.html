@@ -20,7 +20,12 @@ html{
 }
 
 body{
-    background:#050505;
+  background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.68)
+    ),
+    url("IMG_2983.jpeg") center center / cover fixed no-repeat;  
     color:#eee0b5;
     font-family:"Vazirmatn",Tahoma,sans-serif;
 }
@@ -425,14 +430,7 @@ nav a:hover{
 .catalog{
     min-height:70vh;
 
-    background:
-        radial-gradient(
-            circle at 50% 0,
-            rgba(200,160,50,.08),
-            transparent 35%
-        ),
-        #050505;
-
+    background:transparent;
     padding:100px 20px;
 
     text-align:center;
