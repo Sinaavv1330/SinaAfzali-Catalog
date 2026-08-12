@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SINA AFZALI | عطر و رایحه</title>
+<title>SINA AFZALI | 2026</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap');
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -20,181 +20,216 @@ html{
 }
 
 body{
-  background:#050505;
-  color:#f1dfaa;
+  background:#020202;
+  color:#eee0b4;
   font-family:"Vazirmatn",Tahoma,sans-serif;
   overflow-x:hidden;
 }
 
-/* پس زمینه */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-3;
-  background:
-    radial-gradient(circle at 50% 18%,rgba(212,175,55,.15),transparent 28%),
-    radial-gradient(circle at 10% 70%,rgba(212,175,55,.07),transparent 25%),
-    radial-gradient(circle at 90% 75%,rgba(212,175,55,.06),transparent 25%);
-}
+/* ===== BACKGROUND ===== */
 
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  opacity:.35;
-  background-image:
-    linear-gradient(115deg,transparent 35%,rgba(212,175,55,.08),transparent 45%),
-    linear-gradient(65deg,transparent 45%,rgba(255,255,255,.025),transparent 55%);
-  pointer-events:none;
-}
-
-/* نورهای شناور */
-.light{
-  position:fixed;
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  background:rgba(212,175,55,.06);
-  filter:blur(100px);
-  pointer-events:none;
-  z-index:-1;
-  animation:floatLight 9s ease-in-out infinite alternate;
-}
-
-.light.one{
-  top:-150px;
-  right:-100px;
-}
-
-.light.two{
-  bottom:-150px;
-  left:-100px;
-  animation-delay:3s;
-}
-
-@keyframes floatLight{
-  to{
-    transform:translate(80px,60px) scale(1.15);
-  }
-}
-
-/* ذرات */
-#particles{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-}
-
-.particle{
-  position:absolute;
-  width:2px;
-  height:2px;
-  background:#d4af37;
-  border-radius:50%;
-  opacity:0;
-  animation:rise linear infinite;
-}
-
-@keyframes rise{
-  0%{
-    transform:translateY(105vh);
-    opacity:0;
-  }
-  15%{opacity:.6}
-  80%{opacity:.15}
-  100%{
-    transform:translateY(-10vh);
-    opacity:0;
-  }
-}
-
-/* هدر */
-header{
-  position:fixed;
-  top:0;
-  right:0;
-  left:0;
-  height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 6%;
-  background:rgba(3,3,3,.65);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(212,175,55,.12);
-  z-index:100;
-}
-
-.brand{
-  direction:ltr;
-  color:#e8c96a;
-  font-family:Georgia,serif;
-  letter-spacing:.22em;
-  font-size:18px;
-}
-
-nav{
-  display:flex;
-  gap:34px;
-}
-
-nav a{
-  color:#cfc5a7;
-  text-decoration:none;
-  font-size:12px;
-  transition:.3s;
-}
-
-nav a:hover{
-  color:#e5c568;
-}
-
-.instagram{
-  color:#d7b957;
-  text-decoration:none;
-  font-size:11px;
-}
-
-/* هیرو */
 .hero{
   min-height:100vh;
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:120px 20px 70px;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 18%,
+      rgba(201,164,63,.22),
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 50% 70%,
+      rgba(166,123,31,.09),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #090909 0%,
+      #030303 55%,
+      #010101 100%
+    );
 }
 
+/* رگه های سنگ */
 .hero::before{
   content:"";
   position:absolute;
-  width:min(900px,90vw);
-  height:500px;
-  background:radial-gradient(
-    ellipse,
-    rgba(212,175,55,.09),
-    transparent 65%
-  );
-  pointer-events:none;
+  inset:-20%;
+
+  opacity:.25;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 38%,
+      rgba(255,255,255,.07) 39%,
+      transparent 40%
+    ),
+    linear-gradient(
+      70deg,
+      transparent 52%,
+      rgba(212,175,55,.08) 53%,
+      transparent 54%
+    ),
+    linear-gradient(
+      130deg,
+      transparent 65%,
+      rgba(255,255,255,.04) 66%,
+      transparent 67%
+    );
+
+  transform:rotate(-4deg) scale(1.2);
 }
+
+/* نور بالایی */
+.gold-light{
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  top:-500px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(245,215,119,.22),
+      rgba(212,175,55,.08) 30%,
+      transparent 70%
+    );
+
+  filter:blur(35px);
+
+  animation:lightPulse 6s ease-in-out infinite;
+}
+
+@keyframes lightPulse{
+
+  0%,100%{
+    opacity:.65;
+    transform:translateX(-50%) scale(1);
+  }
+
+  50%{
+    opacity:1;
+    transform:translateX(-50%) scale(1.12);
+  }
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:absolute;
+
+  top:0;
+  left:0;
+  right:0;
+
+  height:86px;
+
+  padding:0 6%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  z-index:10;
+
+  border-bottom:1px solid rgba(212,175,55,.12);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.65),
+      transparent
+    );
+}
+
+.logo-mini{
+  direction:ltr;
+
+  font-family:Georgia,serif;
+
+  color:#d9b957;
+
+  font-size:15px;
+
+  letter-spacing:.28em;
+}
+
+nav{
+  display:flex;
+  gap:32px;
+}
+
+nav a{
+  color:#aaa18c;
+
+  text-decoration:none;
+
+  font-size:11px;
+
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#e7cb72;
+}
+
+.instagram{
+  color:#d7b85d;
+
+  text-decoration:none;
+
+  font-size:10px;
+
+  border:1px solid rgba(212,175,55,.25);
+
+  padding:8px 14px;
+
+  border-radius:30px;
+
+  transition:.3s;
+}
+
+.instagram:hover{
+  background:rgba(212,175,55,.08);
+}
+
+/* ===== HERO CONTENT ===== */
 
 .hero-content{
   position:relative;
-  z-index:2;
-  width:min(900px,100%);
-  animation:enter 1.3s ease-out;
+
+  z-index:3;
+
+  width:min(900px,92vw);
+
+  text-align:center;
+
+  padding-top:45px;
+
+  animation:heroIn 1.5s cubic-bezier(.16,1,.3,1);
 }
 
-@keyframes enter{
+@keyframes heroIn{
+
   from{
     opacity:0;
-    transform:translateY(35px);
-    filter:blur(8px);
+    transform:translateY(35px) scale(.97);
+    filter:blur(12px);
   }
+
   to{
     opacity:1;
     transform:none;
@@ -202,266 +237,239 @@ nav a:hover{
   }
 }
 
-/* لوگو */
-.logo-box{
-  width:min(430px,82vw);
-  margin:auto;
+/* ===== LOGO ===== */
+
+.logo-wrap{
   position:relative;
+
+  width:min(330px,72vw);
+
+  margin:auto;
 }
 
-.logo-box::after{
+.logo-wrap::after{
   content:"";
+
   position:absolute;
+
   left:10%;
   right:10%;
   bottom:0;
+
   height:45px;
-  background:rgba(212,175,55,.18);
+
+  background:rgba(212,175,55,.2);
+
   filter:blur(35px);
+
   z-index:-1;
 }
 
 .logo{
   width:100%;
+
   display:block;
+
+  object-fit:contain;
+
   filter:
-    drop-shadow(0 0 20px rgba(212,175,55,.18))
-    drop-shadow(0 15px 50px rgba(0,0,0,.8));
+    drop-shadow(0 0 15px rgba(212,175,55,.18))
+    drop-shadow(0 25px 60px rgba(0,0,0,.9));
+
   animation:logoFloat 5s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-7px);
+  }
 }
 
-/* اسم برند */
-.brand-name{
+/* ===== BRAND ===== */
+
+.brand{
   direction:ltr;
-  margin-top:25px;
-  color:#efd47b;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(36px,7vw,68px);
+
+  margin-top:18px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:clamp(34px,6vw,60px);
+
   letter-spacing:.18em;
-  text-shadow:0 0 30px rgba(212,175,55,.12);
+
+  padding-left:.18em;
+
+  color:#efd47c;
+
+  text-shadow:
+    0 0 20px rgba(212,175,55,.14);
 }
 
 .year{
   direction:ltr;
-  margin-top:8px;
-  color:#a98936;
+
+  margin-top:7px;
+
   font-family:Georgia,serif;
-  letter-spacing:.55em;
-  padding-left:.55em;
-  font-size:20px;
+
+  font-size:17px;
+
+  letter-spacing:.6em;
+
+  padding-left:.6em;
+
+  color:#9f7d2d;
 }
+
+/* ===== LINE ===== */
 
 .line{
-  width:min(500px,75%);
+  width:min(430px,65vw);
+
   height:1px;
-  margin:25px auto;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #8b691c,
-    #f3d87d,
-    #8b691c,
-    transparent
-  );
-}
 
-.slogan{
-  color:#b7a56e;
-  font-size:12px;
-  letter-spacing:.08em;
-}
+  margin:22px auto;
 
-/* دکمه */
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin-top:35px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  min-width:190px;
-  padding:14px 25px;
-  border-radius:50px;
-  text-decoration:none;
-  font-size:12px;
-  transition:.35s;
-}
-
-.btn-main{
-  color:#080706;
-  background:linear-gradient(
-    135deg,
-    #f5dc86,
-    #c59b2e,
-    #806016
-  );
-  box-shadow:0 10px 35px rgba(212,175,55,.12);
-}
-
-.btn-outline{
-  color:#e2c873;
-  border:1px solid rgba(212,175,55,.35);
-  background:rgba(255,255,255,.025);
-}
-
-.btn:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 40px rgba(212,175,55,.18);
-}
-
-/* جستجو */
-.search-section{
-  padding:90px 20px;
-  text-align:center;
-}
-
-.section-label{
-  color:#b99332;
-  font-size:11px;
-  letter-spacing:.15em;
-  margin-bottom:12px;
-}
-
-.section-title{
-  font-size:30px;
-  font-weight:500;
-  color:#eee0b6;
-}
-
-.search-box{
-  width:min(620px,92vw);
-  margin:35px auto 0;
-  display:flex;
-  background:#0b0b0b;
-  border:1px solid rgba(212,175,55,.28);
-  border-radius:60px;
-  overflow:hidden;
-  box-shadow:0 15px 60px rgba(0,0,0,.5);
-}
-
-.search-box input{
-  flex:1;
-  min-width:0;
-  padding:18px 25px;
-  background:transparent;
-  border:0;
-  outline:0;
-  color:#eee;
-  font-family:inherit;
-  font-size:13px;
-}
-
-.search-box input::placeholder{
-  color:#756b55;
-}
-
-.search-box button{
-  border:0;
-  padding:0 30px;
-  background:linear-gradient(135deg,#efd47b,#a77c1c);
-  color:#090909;
-  font-family:inherit;
-  cursor:pointer;
-}
-
-/* دسته بندی */
-.collections{
-  padding:80px 6% 120px;
-}
-
-.cards{
-  max-width:1100px;
-  margin:45px auto 0;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.card{
-  position:relative;
-  min-height:230px;
-  padding:35px 25px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  text-align:center;
-  border:1px solid rgba(212,175,55,.16);
   background:
     linear-gradient(
-      145deg,
-      rgba(255,255,255,.035),
-      rgba(212,175,55,.025)
+      90deg,
+      transparent,
+      #80601b,
+      #f0d37b,
+      #80601b,
+      transparent
     );
-  overflow:hidden;
-  transition:.4s;
 }
 
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-50%;
-  background:radial-gradient(
-    circle,
-    rgba(212,175,55,.1),
-    transparent 55%
-  );
-  opacity:0;
-  transition:.4s;
+/* ===== TAGLINE ===== */
+
+.tagline{
+  color:#c1ae79;
+
+  font-size:12px;
+
+  font-weight:300;
+
+  letter-spacing:.04em;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(212,175,55,.4);
-}
+/* ===== CTA ===== */
 
-.card:hover::before{
-  opacity:1;
-}
+.cta{
+  display:inline-flex;
 
-.card-icon{
-  font-size:45px;
-  color:#d4af37;
-  margin-bottom:auto;
-}
+  align-items:center;
+  justify-content:center;
 
-.card h3{
-  color:#e6cc7b;
-  font-size:20px;
+  margin-top:30px;
+
+  min-width:210px;
+
+  height:52px;
+
+  padding:0 28px;
+
+  border-radius:50px;
+
+  text-decoration:none;
+
+  color:#090806;
+
+  font-size:12px;
+
   font-weight:500;
+
+  background:
+    linear-gradient(
+      120deg,
+      #f4db86,
+      #d0a83e,
+      #8d681d
+    );
+
+  box-shadow:
+    0 10px 40px rgba(212,175,55,.14),
+    inset 0 1px rgba(255,255,255,.5);
+
+  transition:
+    transform .35s,
+    box-shadow .35s;
 }
 
-.card p{
-  color:#81785f;
-  font-size:11px;
-  margin-top:8px;
+.cta:hover{
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 18px 50px rgba(212,175,55,.25);
 }
 
-/* فوتر */
-footer{
-  padding:35px 20px;
-  text-align:center;
-  border-top:1px solid rgba(212,175,55,.1);
-  color:#62583c;
-  font-size:10px;
+/* ===== SCROLL ===== */
+
+.scroll{
+  position:absolute;
+
+  bottom:25px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:#75643b;
+
+  font-size:9px;
+
+  letter-spacing:.25em;
+
+  opacity:.65;
+
+  animation:scrollPulse 2.5s infinite;
 }
 
-footer strong{
-  color:#a98a3b;
+.scroll::after{
+  content:"";
+
+  display:block;
+
+  width:1px;
+
+  height:28px;
+
+  margin:8px auto 0;
+
+  background:
+    linear-gradient(
+      #b99842,
+      transparent
+    );
 }
 
-/* موبایل */
-@media(max-width:800px){
+@keyframes scrollPulse{
+
+  0%,100%{
+    opacity:.35;
+  }
+
+  50%{
+    opacity:.9;
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
 
   header{
-    height:65px;
-    padding:0 20px;
+    height:70px;
+    padding:0 18px;
   }
 
   nav{
@@ -469,40 +477,36 @@ footer strong{
   }
 
   .instagram{
-    font-size:9px;
+    font-size:8px;
+    padding:7px 10px;
+  }
+
+  .logo-mini{
+    font-size:11px;
+  }
+
+  .hero-content{
+    padding-top:20px;
+  }
+
+  .logo-wrap{
+    width:min(280px,75vw);
   }
 
   .brand{
-    font-size:14px;
+    font-size:31px;
   }
 
-  .logo-box{
-    width:min(380px,90vw);
+  .year{
+    font-size:15px;
   }
 
-  .brand-name{
-    font-size:34px;
-    letter-spacing:.1em;
+  .tagline{
+    font-size:10px;
   }
 
-  .slogan{
-    font-size:9px;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    min-height:190px;
-  }
-
-  .search-box{
-    height:54px;
-  }
-
-  .search-box button{
-    padding:0 20px;
+  .cta{
+    min-width:190px;
   }
 }
 </style>
@@ -510,41 +514,37 @@ footer strong{
 
 <body>
 
-<div class="light one"></div>
-<div class="light two"></div>
-
-<div id="particles"></div>
-
-<header>
-
-  <div class="brand">
-    SINA AFZALI
-  </div>
-
-  <nav>
-    <a href="#">خانه</a>
-    <a href="#catalog">کاتالوگ عطرها</a>
-    <a href="#collections">مجموعه‌ها</a>
-    <a href="#">درباره ما</a>
-    <a href="#">تماس با ما</a>
-  </nav>
-
-  <a
-    class="instagram"
-    href="https://instagram.com/Afzali_shopp"
-    target="_blank"
-  >
-    @Afzali_shopp
-  </a>
-
-</header>
-
-
 <section class="hero">
+
+  <div class="gold-light"></div>
+
+  <header>
+
+    <div class="logo-mini">
+      SINA AFZALI
+    </div>
+
+    <nav>
+      <a href="#">خانه</a>
+      <a href="#catalog">کاتالوگ</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس با ما</a>
+    </nav>
+
+    <a
+      class="instagram"
+      href="https://instagram.com/Afzali_shopp"
+      target="_blank"
+    >
+      اینستاگرام
+    </a>
+
+  </header>
+
 
   <div class="hero-content">
 
-    <div class="logo-box">
+    <div class="logo-wrap">
 
       <img
         class="logo"
@@ -554,7 +554,7 @@ footer strong{
 
     </div>
 
-    <div class="brand-name">
+    <div class="brand">
       SINA AFZALI
     </div>
 
@@ -564,193 +564,76 @@ footer strong{
 
     <div class="line"></div>
 
-    <div class="slogan">
-      رایحه‌ای برای متمایز بودن
+    <div class="tagline">
+      دنیای رایحه‌های خاص
     </div>
 
-    <div class="buttons">
-
-      <a
-        href="#catalog"
-        class="btn btn-main"
-      >
-        مشاهده کاتالوگ
-      </a>
-
-      <a
-        href="https://instagram.com/Afzali_shopp"
-        target="_blank"
-        class="btn btn-outline"
-      >
-        اینستاگرام ما
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section
-  class="search-section"
-  id="catalog"
->
-
-  <div class="section-label">
-    کاتالوگ SINAAFZALI
-  </div>
-
-  <div class="section-title">
-    عطر مورد نظر خود را پیدا کنید
-  </div>
-
-  <div class="search-box">
-
-    <input
-      type="text"
-      placeholder="کد عطر را وارد کنید..."
-      id="perfumeCode"
+    <a
+      href="#catalog"
+      class="cta"
     >
+      مشاهده کاتالوگ
+    </a>
 
-    <button onclick="searchPerfume()">
-      جستجو
-    </button>
+  </div>
 
+
+  <div class="scroll">
+    کشف کنید
   </div>
 
 </section>
 
 
 <section
-  class="collections"
-  id="collections"
+  id="catalog"
+  style="
+    min-height:60vh;
+    background:#050505;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+  "
 >
 
-  <div style="text-align:center">
+  <div>
 
-    <div class="section-label">
-      مجموعه‌ها
+    <div
+      style="
+        color:#b89435;
+        font-size:11px;
+        margin-bottom:15px;
+      "
+    >
+      کاتالوگ SINAAFZALI
     </div>
 
-    <div class="section-title">
-      دنیای رایحه‌های سینا افضلی
-    </div>
+    <h2
+      style="
+        color:#ead7a1;
+        font-weight:400;
+        font-size:30px;
+      "
+    >
+      مجموعه عطرها
+    </h2>
 
-  </div>
-
-
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="card-icon">
-        ♂
-      </div>
-
-      <h3>
-        عطرهای مردانه
-      </h3>
-
-      <p>
-        رایحه‌های قدرتمند و ماندگار
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        ♀
-      </div>
-
-      <h3>
-        عطرهای زنانه
-      </h3>
-
-      <p>
-        رایحه‌های خاص و متمایز
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        ◈
-      </div>
-
-      <h3>
-        عطرهای یونیسکس
-      </h3>
-
-      <p>
-        رایحه‌هایی فراتر از جنسیت
-      </p>
-
-    </div>
+    <p
+      style="
+        color:#77705f;
+        margin-top:15px;
+        font-size:12px;
+      "
+    >
+      به‌زودی مجموعه کامل عطرهای سینا افضلی
+      در این بخش قرار می‌گیرد.
+    </p>
 
   </div>
 
 </section>
-
-
-<footer>
-
-  <strong>SINA AFZALI</strong>
-  · 2026
-  · تمامی حقوق محفوظ است
-
-</footer>
-
-
-<script>
-
-/* ذرات طلایی */
-const particles =
-document.getElementById("particles");
-
-for(let i=0;i<45;i++){
-
-  const p =
-  document.createElement("span");
-
-  p.className="particle";
-
-  p.style.left =
-  Math.random()*100+"%";
-
-  p.style.animationDuration =
-  (5+Math.random()*9)+"s";
-
-  p.style.animationDelay =
-  (Math.random()*9)+"s";
-
-  particles.appendChild(p);
-}
-
-
-/* جستجوی موقت */
-function searchPerfume(){
-
-  const code =
-  document.getElementById("perfumeCode").value.trim();
-
-  if(!code){
-
-    alert("لطفاً کد عطر را وارد کنید.");
-
-    return;
-  }
-
-  alert(
-    "کد «"+code+"» ثبت شد.\nصفحه اختصاصی این عطر به‌زودی اضافه می‌شود."
-  );
-}
-
-</script>
 
 </body>
 </html>
