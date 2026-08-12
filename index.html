@@ -10,504 +10,501 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap');
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#020202;
-  color:#eee0b4;
-  font-family:"Vazirmatn",Tahoma,sans-serif;
-  overflow-x:hidden;
+    background:#050505;
+    color:#eee0b5;
+    font-family:"Vazirmatn",Tahoma,sans-serif;
 }
 
-/* ===== BACKGROUND ===== */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
 
-  background:
-    radial-gradient(
-      ellipse at 50% 18%,
-      rgba(201,164,63,.22),
-      transparent 28%
-    ),
-    radial-gradient(
-      ellipse at 50% 70%,
-      rgba(166,123,31,.09),
-      transparent 42%
-    ),
-    linear-gradient(
-      180deg,
-      #090909 0%,
-      #030303 55%,
-      #010101 100%
-    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.30),
+            rgba(0,0,0,.62)
+        ),
+        url("IMG_2983.jpeg") center center / cover no-repeat;
 }
 
-/* رگه های سنگ */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-20%;
+/* لایه سینمایی */
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
 
-  opacity:.25;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(225,190,85,.14),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.25),
+            transparent 45%,
+            rgba(0,0,0,.55)
+        );
 
-  background:
-    linear-gradient(
-      115deg,
-      transparent 38%,
-      rgba(255,255,255,.07) 39%,
-      transparent 40%
-    ),
-    linear-gradient(
-      70deg,
-      transparent 52%,
-      rgba(212,175,55,.08) 53%,
-      transparent 54%
-    ),
-    linear-gradient(
-      130deg,
-      transparent 65%,
-      rgba(255,255,255,.04) 66%,
-      transparent 67%
-    );
-
-  transform:rotate(-4deg) scale(1.2);
+    pointer-events:none;
 }
 
-/* نور بالایی */
+/* نور طلایی متحرک */
 .gold-light{
-  position:absolute;
+    position:absolute;
+    width:500px;
+    height:500px;
+    top:-300px;
+    left:50%;
 
-  width:700px;
-  height:700px;
+    transform:translateX(-50%);
 
-  top:-500px;
-  left:50%;
+    border-radius:50%;
 
-  transform:translateX(-50%);
+    background:rgba(218,179,65,.22);
 
-  border-radius:50%;
+    filter:blur(100px);
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(245,215,119,.22),
-      rgba(212,175,55,.08) 30%,
-      transparent 70%
-    );
-
-  filter:blur(35px);
-
-  animation:lightPulse 6s ease-in-out infinite;
+    animation:pulse 6s ease-in-out infinite;
 }
 
-@keyframes lightPulse{
+@keyframes pulse{
+    0%,100%{
+        opacity:.55;
+        transform:translateX(-50%) scale(1);
+    }
 
-  0%,100%{
-    opacity:.65;
-    transform:translateX(-50%) scale(1);
-  }
-
-  50%{
-    opacity:1;
-    transform:translateX(-50%) scale(1.12);
-  }
+    50%{
+        opacity:1;
+        transform:translateX(-50%) scale(1.2);
+    }
 }
 
-/* ===== HEADER ===== */
+/* =========================
+   HEADER
+========================= */
 
 header{
-  position:absolute;
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
 
-  top:0;
-  left:0;
-  right:0;
+    height:82px;
 
-  height:86px;
+    padding:0 6%;
 
-  padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    z-index:10;
 
-  z-index:10;
-
-  border-bottom:1px solid rgba(212,175,55,.12);
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.65),
-      transparent
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,.72),
+        transparent
     );
+
+    border-bottom:1px solid rgba(220,180,65,.12);
 }
 
-.logo-mini{
-  direction:ltr;
+.header-name{
+    direction:ltr;
 
-  font-family:Georgia,serif;
+    color:#dfbd5d;
 
-  color:#d9b957;
+    font-family:Georgia,serif;
 
-  font-size:15px;
+    letter-spacing:.22em;
 
-  letter-spacing:.28em;
+    font-size:15px;
 }
 
 nav{
-  display:flex;
-  gap:32px;
+    display:flex;
+    gap:32px;
 }
 
 nav a{
-  color:#aaa18c;
+    color:#ddd1af;
+    text-decoration:none;
+    font-size:11px;
 
-  text-decoration:none;
-
-  font-size:11px;
-
-  transition:.3s;
+    transition:.3s;
 }
 
 nav a:hover{
-  color:#e7cb72;
+    color:#f0cf6d;
 }
 
 .instagram{
-  color:#d7b85d;
+    color:#e0c46b;
+    text-decoration:none;
 
-  text-decoration:none;
+    border:1px solid rgba(220,180,65,.3);
 
-  font-size:10px;
+    border-radius:30px;
 
-  border:1px solid rgba(212,175,55,.25);
+    padding:8px 16px;
 
-  padding:8px 14px;
+    font-size:10px;
 
-  border-radius:30px;
-
-  transition:.3s;
+    transition:.3s;
 }
 
 .instagram:hover{
-  background:rgba(212,175,55,.08);
+    background:rgba(220,180,65,.1);
 }
 
-/* ===== HERO CONTENT ===== */
+/* =========================
+   CONTENT
+========================= */
 
 .hero-content{
-  position:relative;
+    position:relative;
+    z-index:5;
 
-  z-index:3;
+    text-align:center;
 
-  width:min(900px,92vw);
+    width:min(850px,92%);
 
-  text-align:center;
+    padding-top:40px;
 
-  padding-top:45px;
-
-  animation:heroIn 1.5s cubic-bezier(.16,1,.3,1);
+    animation:entrance 1.5s ease-out;
 }
 
-@keyframes heroIn{
+@keyframes entrance{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+        filter:blur(10px);
+    }
 
-  from{
-    opacity:0;
-    transform:translateY(35px) scale(.97);
-    filter:blur(12px);
-  }
-
-  to{
-    opacity:1;
-    transform:none;
-    filter:none;
-  }
+    to{
+        opacity:1;
+        transform:none;
+        filter:none;
+    }
 }
 
-/* ===== LOGO ===== */
+/* =========================
+   LOGO
+========================= */
 
-.logo-wrap{
-  position:relative;
+.logo-container{
+    width:min(310px,72vw);
 
-  width:min(330px,72vw);
+    margin:auto;
 
-  margin:auto;
+    position:relative;
 }
 
-.logo-wrap::after{
-  content:"";
+.logo-container::after{
+    content:"";
 
-  position:absolute;
+    position:absolute;
 
-  left:10%;
-  right:10%;
-  bottom:0;
+    left:10%;
+    right:10%;
+    bottom:0;
 
-  height:45px;
+    height:45px;
 
-  background:rgba(212,175,55,.2);
+    background:rgba(218,179,65,.28);
 
-  filter:blur(35px);
+    filter:blur(35px);
 
-  z-index:-1;
+    z-index:-1;
 }
 
 .logo{
-  width:100%;
+    width:100%;
 
-  display:block;
+    display:block;
 
-  object-fit:contain;
+    filter:
+        drop-shadow(
+            0 0 18px rgba(218,179,65,.2)
+        )
+        drop-shadow(
+            0 25px 50px rgba(0,0,0,.9)
+        );
 
-  filter:
-    drop-shadow(0 0 15px rgba(212,175,55,.18))
-    drop-shadow(0 25px 60px rgba(0,0,0,.9));
-
-  animation:logoFloat 5s ease-in-out infinite;
+    animation:logoFloat 5s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
 
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-7px);
-  }
+    50%{
+        transform:translateY(-7px);
+    }
 }
 
-/* ===== BRAND ===== */
+/* =========================
+   BRAND
+========================= */
 
 .brand{
-  direction:ltr;
+    direction:ltr;
 
-  margin-top:18px;
+    margin-top:18px;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+    color:#f0d37b;
 
-  font-size:clamp(34px,6vw,60px);
+    font-family:Georgia,"Times New Roman",serif;
 
-  letter-spacing:.18em;
+    font-size:clamp(36px,6vw,62px);
 
-  padding-left:.18em;
+    letter-spacing:.18em;
 
-  color:#efd47c;
+    padding-left:.18em;
 
-  text-shadow:
-    0 0 20px rgba(212,175,55,.14);
+    text-shadow:
+        0 0 30px rgba(218,179,65,.18);
 }
 
 .year{
-  direction:ltr;
+    direction:ltr;
 
-  margin-top:7px;
+    margin-top:8px;
 
-  font-family:Georgia,serif;
+    color:#aa8735;
 
-  font-size:17px;
+    font-family:Georgia,serif;
 
-  letter-spacing:.6em;
+    font-size:17px;
 
-  padding-left:.6em;
+    letter-spacing:.55em;
 
-  color:#9f7d2d;
+    padding-left:.55em;
 }
 
-/* ===== LINE ===== */
+.gold-line{
+    width:min(430px,65vw);
 
-.line{
-  width:min(430px,65vw);
+    height:1px;
 
-  height:1px;
+    margin:23px auto;
 
-  margin:22px auto;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #80601b,
-      #f0d37b,
-      #80601b,
-      transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #80601c,
+            #f1d67d,
+            #80601c,
+            transparent
+        );
 }
 
-/* ===== TAGLINE ===== */
+.slogan{
+    color:#d0bd8b;
 
-.tagline{
-  color:#c1ae79;
+    font-size:12px;
 
-  font-size:12px;
-
-  font-weight:300;
-
-  letter-spacing:.04em;
+    font-weight:300;
 }
 
-/* ===== CTA ===== */
+/* =========================
+   BUTTON
+========================= */
 
-.cta{
-  display:inline-flex;
+.enter-button{
+    display:inline-flex;
 
-  align-items:center;
-  justify-content:center;
+    align-items:center;
+    justify-content:center;
 
-  margin-top:30px;
+    margin-top:30px;
 
-  min-width:210px;
+    min-width:210px;
+    height:52px;
 
-  height:52px;
+    border-radius:50px;
 
-  padding:0 28px;
+    text-decoration:none;
 
-  border-radius:50px;
+    color:#090806;
 
-  text-decoration:none;
+    font-size:12px;
 
-  color:#090806;
+    background:
+        linear-gradient(
+            120deg,
+            #f5dc88,
+            #d0a83d,
+            #8b671d
+        );
 
-  font-size:12px;
+    box-shadow:
+        0 12px 40px rgba(214,175,60,.2),
+        inset 0 1px rgba(255,255,255,.5);
 
-  font-weight:500;
-
-  background:
-    linear-gradient(
-      120deg,
-      #f4db86,
-      #d0a83e,
-      #8d681d
-    );
-
-  box-shadow:
-    0 10px 40px rgba(212,175,55,.14),
-    inset 0 1px rgba(255,255,255,.5);
-
-  transition:
-    transform .35s,
-    box-shadow .35s;
+    transition:.35s;
 }
 
-.cta:hover{
-  transform:translateY(-5px);
+.enter-button:hover{
+    transform:translateY(-5px);
 
-  box-shadow:
-    0 18px 50px rgba(212,175,55,.25);
+    box-shadow:
+        0 20px 55px rgba(214,175,60,.3);
 }
 
-/* ===== SCROLL ===== */
+/* =========================
+   SCROLL
+========================= */
 
 .scroll{
-  position:absolute;
+    position:absolute;
 
-  bottom:25px;
+    bottom:25px;
+    left:50%;
 
-  left:50%;
+    transform:translateX(-50%);
 
-  transform:translateX(-50%);
+    color:#aa8d4a;
 
-  color:#75643b;
+    font-size:9px;
 
-  font-size:9px;
+    letter-spacing:.2em;
 
-  letter-spacing:.25em;
+    z-index:5;
 
-  opacity:.65;
-
-  animation:scrollPulse 2.5s infinite;
+    animation:scroll 2.5s infinite;
 }
 
 .scroll::after{
-  content:"";
+    content:"";
 
-  display:block;
+    display:block;
 
-  width:1px;
+    width:1px;
+    height:28px;
 
-  height:28px;
+    margin:8px auto;
 
-  margin:8px auto 0;
-
-  background:
-    linear-gradient(
-      #b99842,
-      transparent
-    );
+    background:
+        linear-gradient(
+            #d3ad4d,
+            transparent
+        );
 }
 
-@keyframes scrollPulse{
-
-  0%,100%{
-    opacity:.35;
-  }
-
-  50%{
-    opacity:.9;
-  }
+@keyframes scroll{
+    0%,100%{opacity:.35;}
+    50%{opacity:1;}
 }
 
-/* ===== MOBILE ===== */
+/* =========================
+   CATALOG
+========================= */
+
+.catalog{
+    min-height:70vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(200,160,50,.08),
+            transparent 35%
+        ),
+        #050505;
+
+    padding:100px 20px;
+
+    text-align:center;
+}
+
+.catalog-small{
+    color:#b99339;
+    font-size:11px;
+    margin-bottom:15px;
+}
+
+.catalog h2{
+    color:#ead7a2;
+
+    font-size:32px;
+
+    font-weight:400;
+}
+
+.catalog p{
+    color:#756d5b;
+
+    font-size:12px;
+
+    margin-top:15px;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
-  header{
-    height:70px;
-    padding:0 18px;
-  }
+    header{
+        height:70px;
+        padding:0 18px;
+    }
 
-  nav{
-    display:none;
-  }
+    nav{
+        display:none;
+    }
 
-  .instagram{
-    font-size:8px;
-    padding:7px 10px;
-  }
+    .header-name{
+        font-size:11px;
+    }
 
-  .logo-mini{
-    font-size:11px;
-  }
+    .instagram{
+        font-size:8px;
+        padding:7px 11px;
+    }
 
-  .hero-content{
-    padding-top:20px;
-  }
+    .logo-container{
+        width:min(280px,76vw);
+    }
 
-  .logo-wrap{
-    width:min(280px,75vw);
-  }
+    .brand{
+        font-size:31px;
+        letter-spacing:.12em;
+        padding-left:.12em;
+    }
 
-  .brand{
-    font-size:31px;
-  }
+    .year{
+        font-size:14px;
+    }
 
-  .year{
-    font-size:15px;
-  }
+    .slogan{
+        font-size:10px;
+    }
 
-  .tagline{
-    font-size:10px;
-  }
-
-  .cta{
-    min-width:190px;
-  }
+    .enter-button{
+        min-width:190px;
+    }
 }
 </style>
 </head>
@@ -516,122 +513,97 @@ nav a:hover{
 
 <section class="hero">
 
-  <div class="gold-light"></div>
+    <div class="gold-light"></div>
 
-  <header>
+    <header>
 
-    <div class="logo-mini">
-      SINA AFZALI
+        <div class="header-name">
+            SINA AFZALI
+        </div>
+
+        <nav>
+            <a href="#">خانه</a>
+            <a href="#catalog">کاتالوگ</a>
+            <a href="#about">درباره ما</a>
+            <a href="#contact">تماس با ما</a>
+        </nav>
+
+        <a
+            class="instagram"
+            href="https://instagram.com/Afzali_shopp"
+            target="_blank"
+        >
+            اینستاگرام
+        </a>
+
+    </header>
+
+
+    <div class="hero-content">
+
+        <div class="logo-container">
+
+            <img
+                class="logo"
+                src="F8F9AF2B-49DB-4EC0-BEF6-E3FF03041997.png"
+                alt="SINA AFZALI"
+            >
+
+        </div>
+
+
+        <div class="brand">
+            SINA AFZALI
+        </div>
+
+
+        <div class="year">
+            2026
+        </div>
+
+
+        <div class="gold-line"></div>
+
+
+        <div class="slogan">
+            دنیای رایحه‌های خاص
+        </div>
+
+
+        <a
+            class="enter-button"
+            href="#catalog"
+        >
+            مشاهده کاتالوگ
+        </a>
+
     </div>
 
-    <nav>
-      <a href="#">خانه</a>
-      <a href="#catalog">کاتالوگ</a>
-      <a href="#about">درباره ما</a>
-      <a href="#contact">تماس با ما</a>
-    </nav>
 
-    <a
-      class="instagram"
-      href="https://instagram.com/Afzali_shopp"
-      target="_blank"
-    >
-      اینستاگرام
-    </a>
-
-  </header>
-
-
-  <div class="hero-content">
-
-    <div class="logo-wrap">
-
-      <img
-        class="logo"
-        src="F8F9AF2B-49DB-4EC0-BEF6-E3FF03041997.png"
-        alt="لوگوی سینا افضلی"
-      >
-
+    <div class="scroll">
+        کشف کنید
     </div>
-
-    <div class="brand">
-      SINA AFZALI
-    </div>
-
-    <div class="year">
-      2026
-    </div>
-
-    <div class="line"></div>
-
-    <div class="tagline">
-      دنیای رایحه‌های خاص
-    </div>
-
-    <a
-      href="#catalog"
-      class="cta"
-    >
-      مشاهده کاتالوگ
-    </a>
-
-  </div>
-
-
-  <div class="scroll">
-    کشف کنید
-  </div>
 
 </section>
 
 
 <section
-  id="catalog"
-  style="
-    min-height:60vh;
-    background:#050505;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:80px 20px;
-  "
+    class="catalog"
+    id="catalog"
 >
 
-  <div>
-
-    <div
-      style="
-        color:#b89435;
-        font-size:11px;
-        margin-bottom:15px;
-      "
-    >
-      کاتالوگ SINAAFZALI
+    <div class="catalog-small">
+        SINAAFZALI
     </div>
 
-    <h2
-      style="
-        color:#ead7a1;
-        font-weight:400;
-        font-size:30px;
-      "
-    >
-      مجموعه عطرها
+    <h2>
+        مجموعه عطرها
     </h2>
 
-    <p
-      style="
-        color:#77705f;
-        margin-top:15px;
-        font-size:12px;
-      "
-    >
-      به‌زودی مجموعه کامل عطرهای سینا افضلی
-      در این بخش قرار می‌گیرد.
+    <p>
+        مجموعه اختصاصی عطرهای سینا افضلی
+        به‌زودی در این بخش قرار می‌گیرد.
     </p>
-
-  </div>
 
 </section>
 
