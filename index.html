@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SINA AFZALI | 2026</title>
+<title>SINA AFZALI</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap');
@@ -20,13 +20,8 @@ html{
 }
 
 body{
-  background:
-    linear-gradient(
-        rgba(0,0,0,.35),
-        rgba(0,0,0,.68)
-    ),
-    url("IMG_2983.jpeg") center center / cover fixed no-repeat;  
-    color:#eee0b5;
+    background:#050505;
+    color:#eee2bd;
     font-family:"Vazirmatn",Tahoma,sans-serif;
 }
 
@@ -45,62 +40,43 @@ body{
 
     background:
         linear-gradient(
-            rgba(0,0,0,.30),
-            rgba(0,0,0,.62)
+            rgba(0,0,0,.28),
+            rgba(0,0,0,.72)
         ),
         url("IMG_2983.jpeg") center center / cover no-repeat;
 }
 
-/* لایه سینمایی */
-.hero::after{
+/* نور طلایی */
+
+.hero::before{
     content:"";
     position:absolute;
-    inset:0;
+    width:420px;
+    height:420px;
 
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(225,190,85,.14),
-            transparent 32%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.25),
-            transparent 45%,
-            rgba(0,0,0,.55)
-        );
-
-    pointer-events:none;
-}
-
-/* نور طلایی متحرک */
-.gold-light{
-    position:absolute;
-    width:500px;
-    height:500px;
-    top:-300px;
+    top:-180px;
     left:50%;
 
     transform:translateX(-50%);
 
     border-radius:50%;
 
-    background:rgba(218,179,65,.22);
+    background:rgba(218,178,63,.18);
 
     filter:blur(100px);
 
-    animation:pulse 6s ease-in-out infinite;
+    animation:goldPulse 6s ease-in-out infinite;
 }
 
-@keyframes pulse{
+@keyframes goldPulse{
     0%,100%{
-        opacity:.55;
+        opacity:.45;
         transform:translateX(-50%) scale(1);
     }
 
     50%{
-        opacity:1;
-        transform:translateX(-50%) scale(1.2);
+        opacity:.85;
+        transform:translateX(-50%) scale(1.15);
     }
 }
 
@@ -110,13 +86,14 @@ body{
 
 header{
     position:absolute;
+
     top:0;
     right:0;
     left:0;
 
-    height:82px;
+    height:70px;
 
-    padding:0 6%;
+    padding:0 22px;
 
     display:flex;
     align-items:center;
@@ -125,90 +102,71 @@ header{
     z-index:10;
 
     background:linear-gradient(
-        180deg,
-        rgba(0,0,0,.72),
+        rgba(0,0,0,.7),
         transparent
     );
-
-    border-bottom:1px solid rgba(220,180,65,.12);
 }
 
-.header-name{
+.brand-mini{
     direction:ltr;
 
-    color:#dfbd5d;
+    color:#e2c76d;
 
     font-family:Georgia,serif;
 
-    letter-spacing:.22em;
+    font-size:12px;
 
-    font-size:15px;
+    letter-spacing:.18em;
 }
 
-nav{
+.menu-button{
+    width:42px;
+    height:42px;
+
     display:flex;
-    gap:32px;
-}
+    align-items:center;
+    justify-content:center;
 
-nav a{
-    color:#ddd1af;
-    text-decoration:none;
-    font-size:11px;
+    border:1px solid rgba(225,195,105,.35);
 
-    transition:.3s;
-}
+    border-radius:50%;
 
-nav a:hover{
-    color:#f0cf6d;
-}
+    color:#e2c76d;
 
-.instagram{
-    color:#e0c46b;
-    text-decoration:none;
+    font-size:18px;
 
-    border:1px solid rgba(220,180,65,.3);
-
-    border-radius:30px;
-
-    padding:8px 16px;
-
-    font-size:10px;
-
-    transition:.3s;
-}
-
-.instagram:hover{
-    background:rgba(220,180,65,.1);
+    background:rgba(0,0,0,.2);
 }
 
 /* =========================
-   CONTENT
+   MAIN
 ========================= */
 
 .hero-content{
     position:relative;
+
     z-index:5;
+
+    width:90%;
+
+    max-width:500px;
 
     text-align:center;
 
-    width:min(850px,92%);
+    padding-top:25px;
 
-    padding-top:40px;
-
-    animation:entrance 1.5s ease-out;
+    animation:appear 1.4s ease-out;
 }
 
-@keyframes entrance{
+@keyframes appear{
     from{
         opacity:0;
-        transform:translateY(35px);
-        filter:blur(10px);
+        transform:translateY(25px);
     }
 
     to{
         opacity:1;
-        transform:none;
-        filter:none;
+        transform:translateY(0);
     }
 }
 
@@ -216,30 +174,12 @@ nav a:hover{
    LOGO
 ========================= */
 
-.logo-container{
-    width:min(310px,72vw);
+.logo-box{
+    width:210px;
 
-    margin:auto;
+    max-width:65vw;
 
-    position:relative;
-}
-
-.logo-container::after{
-    content:"";
-
-    position:absolute;
-
-    left:10%;
-    right:10%;
-    bottom:0;
-
-    height:45px;
-
-    background:rgba(218,179,65,.28);
-
-    filter:blur(35px);
-
-    z-index:-1;
+    margin:0 auto 20px;
 }
 
 .logo{
@@ -249,259 +189,155 @@ nav a:hover{
 
     filter:
         drop-shadow(
-            0 0 18px rgba(218,179,65,.2)
+            0 0 18px rgba(226,194,93,.25)
         )
         drop-shadow(
-            0 25px 50px rgba(0,0,0,.9)
+            0 18px 40px rgba(0,0,0,.9)
         );
-
-    animation:logoFloat 5s ease-in-out infinite;
-}
-
-@keyframes logoFloat{
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-7px);
-    }
 }
 
 /* =========================
-   BRAND
+   BRAND NAME
 ========================= */
 
-.brand{
+.brand-name{
     direction:ltr;
-
-    margin-top:18px;
-
-    color:#f0d37b;
 
     font-family:Georgia,"Times New Roman",serif;
 
-    font-size:clamp(36px,6vw,62px);
+    font-size:36px;
 
-    letter-spacing:.18em;
+    letter-spacing:.13em;
 
-    padding-left:.18em;
+    padding-left:.13em;
+
+    color:#f0d681;
 
     text-shadow:
-        0 0 30px rgba(218,179,65,.18);
+        0 0 25px rgba(225,191,83,.16);
 }
 
 .year{
     direction:ltr;
 
-    margin-top:8px;
+    margin-top:7px;
 
-    color:#aa8735;
+    color:#a8873e;
 
     font-family:Georgia,serif;
 
-    font-size:17px;
+    font-size:13px;
 
-    letter-spacing:.55em;
+    letter-spacing:.5em;
 
-    padding-left:.55em;
+    padding-left:.5em;
 }
 
-.gold-line{
-    width:min(430px,65vw);
+.line{
+    width:170px;
 
     height:1px;
 
-    margin:23px auto;
+    margin:20px auto;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #80601c,
-            #f1d67d,
-            #80601c,
-            transparent
-        );
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #e3c56b,
+        transparent
+    );
 }
 
-.slogan{
-    color:#d0bd8b;
+.description{
+    color:#d1c19d;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:300;
+
+    line-height:2;
 }
 
 /* =========================
    BUTTON
 ========================= */
 
-.enter-button{
-    display:inline-flex;
+.enter{
+    display:flex;
 
     align-items:center;
     justify-content:center;
 
-    margin-top:30px;
+    width:210px;
+    height:50px;
 
-    min-width:210px;
-    height:52px;
+    margin:28px auto 0;
 
-    border-radius:50px;
+    border-radius:30px;
 
     text-decoration:none;
 
     color:#090806;
 
-    font-size:12px;
+    font-size:11px;
 
-    background:
-        linear-gradient(
-            120deg,
-            #f5dc88,
-            #d0a83d,
-            #8b671d
-        );
+    background:linear-gradient(
+        120deg,
+        #f4dc8b,
+        #c99f3d
+    );
 
     box-shadow:
-        0 12px 40px rgba(214,175,60,.2),
-        inset 0 1px rgba(255,255,255,.5);
+        0 12px 35px rgba(210,170,62,.22);
 
     transition:.35s;
 }
 
-.enter-button:hover{
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 20px 55px rgba(214,175,60,.3);
+.enter:active{
+    transform:scale(.97);
 }
 
 /* =========================
-   SCROLL
+   BOTTOM
 ========================= */
 
-.scroll{
+.bottom-text{
     position:absolute;
 
-    bottom:25px;
-    left:50%;
+    bottom:20px;
 
-    transform:translateX(-50%);
-
-    color:#aa8d4a;
-
-    font-size:9px;
-
-    letter-spacing:.2em;
-
-    z-index:5;
-
-    animation:scroll 2.5s infinite;
-}
-
-.scroll::after{
-    content:"";
-
-    display:block;
-
-    width:1px;
-    height:28px;
-
-    margin:8px auto;
-
-    background:
-        linear-gradient(
-            #d3ad4d,
-            transparent
-        );
-}
-
-@keyframes scroll{
-    0%,100%{opacity:.35;}
-    50%{opacity:1;}
-}
-
-/* =========================
-   CATALOG
-========================= */
-
-.catalog{
-    min-height:70vh;
-
-    background:transparent;
-    padding:100px 20px;
+    left:0;
+    right:0;
 
     text-align:center;
-}
 
-.catalog-small{
-    color:#b99339;
-    font-size:11px;
-    margin-bottom:15px;
-}
+    color:#9d8650;
 
-.catalog h2{
-    color:#ead7a2;
+    font-size:8px;
 
-    font-size:32px;
-
-    font-weight:400;
-}
-
-.catalog p{
-    color:#756d5b;
-
-    font-size:12px;
-
-    margin-top:15px;
+    letter-spacing:.18em;
 }
 
 /* =========================
-   MOBILE
+   DESKTOP
 ========================= */
 
-@media(max-width:700px){
+@media(min-width:700px){
 
-    header{
-        height:70px;
-        padding:0 18px;
+    .hero-content{
+        max-width:650px;
     }
 
-    nav{
-        display:none;
+    .logo-box{
+        width:250px;
     }
 
-    .header-name{
-        font-size:11px;
+    .brand-name{
+        font-size:48px;
     }
 
-    .instagram{
-        font-size:8px;
-        padding:7px 11px;
-    }
-
-    .logo-container{
-        width:min(280px,76vw);
-    }
-
-    .brand{
-        font-size:31px;
-        letter-spacing:.12em;
-        padding-left:.12em;
-    }
-
-    .year{
-        font-size:14px;
-    }
-
-    .slogan{
-        font-size:10px;
-    }
-
-    .enter-button{
-        min-width:190px;
+    .description{
+        font-size:12px;
     }
 }
 </style>
@@ -511,35 +347,22 @@ nav a:hover{
 
 <section class="hero">
 
-    <div class="gold-light"></div>
-
     <header>
 
-        <div class="header-name">
+        <div class="brand-mini">
             SINA AFZALI
         </div>
 
-        <nav>
-            <a href="#">خانه</a>
-            <a href="#catalog">کاتالوگ</a>
-            <a href="#about">درباره ما</a>
-            <a href="#contact">تماس با ما</a>
-        </nav>
-
-        <a
-            class="instagram"
-            href="https://instagram.com/Afzali_shopp"
-            target="_blank"
-        >
-            اینستاگرام
-        </a>
+        <div class="menu-button">
+            ≡
+        </div>
 
     </header>
 
 
-    <div class="hero-content">
+    <main class="hero-content">
 
-        <div class="logo-container">
+        <div class="logo-box">
 
             <img
                 class="logo"
@@ -550,7 +373,7 @@ nav a:hover{
         </div>
 
 
-        <div class="brand">
+        <div class="brand-name">
             SINA AFZALI
         </div>
 
@@ -560,48 +383,78 @@ nav a:hover{
         </div>
 
 
-        <div class="gold-line"></div>
+        <div class="line"></div>
 
 
-        <div class="slogan">
-            دنیای رایحه‌های خاص
+        <div class="description">
+            دنیای رایحه‌های خاص و انتخاب‌های متمایز
         </div>
 
 
         <a
-            class="enter-button"
             href="#catalog"
+            class="enter"
         >
-            مشاهده کاتالوگ
+            ورود به مجموعه
         </a>
 
-    </div>
+    </main>
 
 
-    <div class="scroll">
-        کشف کنید
+    <div class="bottom-text">
+        CRAFTED FOR DISTINCTION
     </div>
 
 </section>
 
 
 <section
-    class="catalog"
     id="catalog"
+    style="
+        min-height:100vh;
+        background:#050505;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding:40px;
+    "
 >
 
-    <div class="catalog-small">
-        SINAAFZALI
+    <div>
+
+        <div
+            style="
+                color:#d6b65c;
+                font-size:11px;
+                letter-spacing:.2em;
+                direction:ltr;
+            "
+        >
+            SINAAFZALI
+        </div>
+
+        <h2
+            style="
+                margin-top:15px;
+                color:#eee2bd;
+                font-weight:400;
+            "
+        >
+            مجموعه عطرها
+        </h2>
+
+        <p
+            style="
+                margin-top:12px;
+                color:#817862;
+                font-size:11px;
+            "
+        >
+            کاتالوگ محصولات به‌زودی
+        </p>
+
     </div>
-
-    <h2>
-        مجموعه عطرها
-    </h2>
-
-    <p>
-        مجموعه اختصاصی عطرهای سینا افضلی
-        به‌زودی در این بخش قرار می‌گیرد.
-    </p>
 
 </section>
 
