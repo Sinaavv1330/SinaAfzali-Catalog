@@ -952,6 +952,56 @@ footer{
     transform:translateY(-4px);
   }
 
+}/* ---------- TOP CONTACT ---------- */
+
+.contact-top{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  direction:rtl;
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  white-space:nowrap;
+}
+
+.contact-top span{
+  color:#777;
+}
+
+.contact-top a{
+  color:var(--gold2);
+  text-decoration:none;
+  transition:.3s;
+  direction:ltr;
+}
+
+.contact-top a:hover{
+  color:white;
+  text-shadow:0 0 15px rgba(212,175,55,.35);
+}
+
+@media(max-width:600px){
+
+  .contact-top{
+    gap:8px;
+    font-size:8px;
+  }
+
+  .contact-top span{
+    display:none;
+  }
+
+  .contact-top a:first-of-type{
+    display:none;
+  }
+
+  .contact-top a:last-of-type{
+    display:block;
+    max-width:115px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
 }
 </style>
 </head>
@@ -963,10 +1013,30 @@ footer{
 <div class="particles" id="particles"></div>
 
 <nav class="nav">
-  <div class="nav-logo">SINAAFZALI</div>
-  <div class="nav-tag">SIGNATURE OF SCENT</div>
-</nav>
 
+  <div class="contact-top">
+
+    <span>ارتباط با ما</span>
+
+    <a href="tel:09154797192">
+      09154797192
+    </a>
+
+    <a href="https://instagram.com/Afzali_shopp" target="_blank">
+      @Afzali_shopp
+    </a>
+
+  </div>
+
+  <div class="nav-logo">
+    SINAAFZALI
+  </div>
+
+  <div class="nav-tag">
+    SIGNATURE OF SCENT
+  </div>
+
+</nav>
 <header class="hero">
 
   <div class="hero-inner">
