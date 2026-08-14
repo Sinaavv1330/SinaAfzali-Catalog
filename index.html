@@ -809,6 +809,149 @@ footer{
 
 .search button:active{
   transform:scale(.98);
+}/* =========================================
+   SINAAFZALI — LUXURY VISUAL UPGRADE
+   Lightweight / CSS only
+========================================= */
+
+/* HERO */
+
+.hero{
+  overflow:hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212,175,55,.035) 50%,
+      transparent 100%
+    );
+  opacity:.55;
+  z-index:-1;
+  animation:heroLight 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroLight{
+  from{
+    transform:translateX(-8%);
+    opacity:.25;
+  }
+  to{
+    transform:translateX(8%);
+    opacity:.65;
+  }
+}
+
+/* متن‌های Hero با ورود نرم */
+
+.eyebrow{
+  animation:heroTextIn .9s .15s both;
+}
+
+.hero-title{
+  animation:heroTextIn .9s .35s both;
+}
+
+.hero-text{
+  animation:heroTextIn .9s .5s both;
+}
+
+.search-wrap{
+  animation:heroTextIn .9s .65s both;
+}
+
+@keyframes heroTextIn{
+  from{
+    opacity:0;
+    transform:translateY(14px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+
+/* خط زیر لوگو */
+
+.line{
+  box-shadow:
+    0 0 12px rgba(212,175,55,.08);
+}
+
+.line::after{
+  box-shadow:
+    0 0 12px var(--gold),
+    0 0 28px rgba(212,175,55,.22);
+}
+
+
+/* کارت‌ها */
+
+.card{
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(212,175,55,.55);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(212,175,55,.055),
+      rgba(255,255,255,.012)
+    );
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.45),
+    0 0 30px rgba(212,175,55,.07);
+}
+
+.card h3{
+  transition:
+    color .3s ease,
+    text-shadow .3s ease;
+}
+
+.card:hover h3{
+  color:var(--gold2);
+  text-shadow:0 0 18px rgba(212,175,55,.16);
+}
+
+.badge{
+  transition:
+    border-color .3s ease,
+    color .3s ease,
+    background .3s ease;
+}
+
+.card:hover .badge{
+  border-color:rgba(212,175,55,.25);
+  color:#d8cfae;
+}
+
+
+/* موبایل — سبک و روان */
+
+@media(max-width:600px){
+
+  .hero::after{
+    animation:none;
+  }
+
+  .card:hover{
+    transform:translateY(-4px);
+  }
+
 }
 </style>
 </head>
